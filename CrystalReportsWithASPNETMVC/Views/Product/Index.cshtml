@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CrystalReportsWithASPNETMVC.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2>List Product</h2>
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in ViewBag.ListProducts)
+                {
+                    <tr>
+                        <td>@product.Id</td>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Quantity</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br />
+        <a href="@Url.Action("Export","Product")">Export Report</a> |
+        <a href="@Url.Action("ExportGrouping","Product")">Export Report Grouping</a> 
+
+    </div>
+</div>
